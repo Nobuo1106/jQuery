@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>リストを見やすいツリー表示型のメニューに変更する</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/jquery.treeview.css" rel="stylesheet" type="text/css" media="all" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.treeview.js"></script>
+</head>
+<body>
+<div id="contents">
+  <h1>リストを見やすいツリー表示型<br>のメニューに変更する</h1>
+
+  <ul class="filetree">
+    <li><span class="folder">会社概要</span>
+      <ul>
+        <li><span class="file">業務内容</span></li>
+        <li><span class="file">沿革</span＞</li> <li><span class="file">企業理念</span></li>
+      </ul>
+    </li>
+    <li><span class="folder">商品紹介</span>
+      <ul>
+        <li><span class="folder">イチゴ</span>
+          <ul>
+            <li><span class="file">おいしいイチゴ</span></li>
+            <li><span class="file">甘〜いイチゴ</span></li>
+          </ul>
+        </li>
+        <li><span class="file">りんご</span></li>
+      </ul>
+    </li>
+    <li><span class="folder">お客様の声</span>
+      <ul>
+        <li><span class="file">~様</span></li>
+        <li><span class="file">~様</span></li>
+      </ul>
+    </li>
+    <li><span class="file">お問い合わせ</span></li>
+    <li><span class="file">リンク集</span></li>
+  </ul>
+</div>
+<script type="text/javascript">
+$(function(){
+  $('.filetree').treeview({
+    collapsed: true,
+    unique: true,
+    animated: 'fast'
+  });
+});
+</script>
+</body>
+</html>
