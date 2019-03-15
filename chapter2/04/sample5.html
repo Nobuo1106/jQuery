@@ -20,17 +20,22 @@
 
     <script>
       $(function() {
-        $("input").val("入力してください").css("color", "#CCC").one("focus", function() {
-          $(this).val("").css("color", "#000");
-        }).blur(function() {
+        initInputForm = function($form) {
+          $form.val("入力してください").css("color", "#CCC").addClass("empty")
+        }
+
+        $input = $('input');
+        initInputForm($input);
+        $input.on("focus", function() {
+          if ($(this).hasClass("empty")) {
+            $(this).val("").css("color", "#000").removeClass("empty");
+          }
+        }).on("blur", function() {
           if ($(this).val() == "") {
-            $(this).val("入力してください").css("color", "#CCC").one("focus", function() {
-              $(this).val("").css("color", "#000");
-            });
+            initInputForm($(this));
           }
         });
-      });
-      $(function() {
+
         $("select").change(function(){
           $("span").text($(this).val());
         });
